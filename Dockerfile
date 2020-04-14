@@ -7,7 +7,7 @@ ENV TIMEZONE=Asia/Shanghai
 # 一些工作目录准备
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
     # 更新索引，系统和修改时区以及一些扩展
-    apk update && apk add --no-cache tzdata bash git openssh && \
+    apk update && apk upgrade -a && apk add --no-cache tzdata bash git openssh && \
     echo "alias ll='ls -l --color=tty'" >> /etc/profile && \
     echo "source /etc/profile " >> ~/.bashrc && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
